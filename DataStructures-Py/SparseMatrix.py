@@ -46,8 +46,10 @@ class SparseMatrix:
         
         raise ValueError(f"No item is saved at {i} - {j}")
         
-    def print_matrix(self):
-        x = "Row Index | Column Index | Value"
-        print(x ,"\n", "-"*len(x))
+    def __str__(self):
+        x = "Row Index | Column Index | Value\n"
+        x+="-"*len(x)
         for entry in self.__Data:
-            print(f"    {entry[0]}     |      {entry[1]}       |   {entry[2]}")
+            x+=f"    {entry[0]}     |      {entry[1]}       |   {entry[2]}"
+            
+        return x
