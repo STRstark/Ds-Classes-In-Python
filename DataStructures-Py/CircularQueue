@@ -11,6 +11,9 @@ class Queue:
     @property
     def Rear(self):
         return self.__Rear
+    @property
+    def Cap(self):
+        return self.__Max_Capacity
     
     def __init__(self ,Max_Capacity ):
         self.__Max_Capacity = Max_Capacity
@@ -39,40 +42,33 @@ class Queue:
         
         self.__Size-=1
         self.__Front =( self.__Front + 1) % self.__Max_Capacity
-        return self.__Data[self.__Rear -1]
+        return self.__Data[self.__Front -1]
     
     
     def Peak(self):
-        if self.is_empty():
+        if self.IsEmpty():
             raise IndexError("Dequeue from an empty queue")
         
-        return self.__Data[self.__Rear]
+        return self.__Data[self.__Front]
 
+
+def DeleteMaxElement(X : Queue):
+    #Findig the Value of the maximum element inside the queue:
+    Data = []
+    while not X.IsEmpty():
+        Data.append(X.DeQueue())
+    MAX = max(Data)
+    Data.remove(MAX)
+    
+    for i in Data :
+        X.EnQueue(i)  
+    return X  
+        
 X = Queue(5)
-try :
-    
-    print(X)
-    X.EnQueue(50)
-    print(X)
-    X.EnQueue(50)
-    print(X)
-    X.EnQueue(50)
-    print(X)
-    X.EnQueue(50)
-    print(X)
-    X.EnQueue(50)
-    print(X)
-    X.EnQueue(50)
-   
-
-except OverflowError as of : 
-    print(of)
-    
-try :
-    print(X)
-    X.DeQueue()
-    print(X)
-    X.EnQueue(100)
-    print(X)
-except OverflowError as of : 
-    print(of)
+X.EnQueue(1)
+X.EnQueue(2)
+X.EnQueue(3)
+X.EnQueue(4)
+X.EnQueue(5)
+print(X)
+print(DeleteMaxElement(X))
