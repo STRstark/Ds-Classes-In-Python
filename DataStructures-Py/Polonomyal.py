@@ -1,5 +1,4 @@
 class Polynomial:
-
     __terms = []
 
     def __init__(self):
@@ -19,11 +18,11 @@ class Polynomial:
         polynomial_str = f"f({x}) = {result}"
         print(polynomial_str)
         return result
-    def print_polynomial(self):
-        
+   
+    def __str__(self):
         polynomial_str = "f(x) = "
         terms_str = []
-        for term in sorted(self.__terms, reverse=True):
+        for term in sorted(self.__terms):
             power = term[0]
             coefficient = term[1]
             if power == 0:
@@ -33,5 +32,13 @@ class Polynomial:
             else:
                 terms_str.append(f"{coefficient}x^{power}")
         polynomial_str += " + ".join(terms_str)
-        print(polynomial_str)
+        return polynomial_str
+    
+X = Polynomial()
 
+X.add_term(0,1)
+X.add_term(1,2)
+X.add_term(2,3)
+X.add_term(3,4)
+print(X)
+X.calculate(2)
