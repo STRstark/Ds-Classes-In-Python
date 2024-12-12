@@ -56,4 +56,31 @@ class LinkedList :
             if Current.next_node == None :
                 Current = Current.next_node.next_node
             Current = Current.next_Node
+    
+    def DeleteAnIndex(self , Index : int):
+        Current = self.Head
         
+        for _ in range(Index):
+            Current = Current.next_Node
+        
+        self.DeleteANode(Current)
+
+    def DeleteAValue(self , value) :
+        self.DeleteANode(self.GetNodeWithValue(value))
+
+
+
+test = LinkedList(int)
+
+test.Insert(5)
+test.Insert(6)
+test.Insert(7)
+test.Insert(8)
+test.Insert(9)
+test.Insert(10)
+test.Insert(8)
+
+print(test) 
+test.DeleteANode(test.GetNodeWithValue(5))
+
+print(test)
