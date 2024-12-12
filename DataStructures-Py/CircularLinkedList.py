@@ -56,6 +56,8 @@ class CircularLinkedList :
         self.Tail = node
     
     def Insert2(self , value , N : Node):
+        if not isinstance(value , self.datatype):
+            raise TypeError(f"linkedList only accepts data of type :{self.datatype}!")
         
         node = Node(value)
         
