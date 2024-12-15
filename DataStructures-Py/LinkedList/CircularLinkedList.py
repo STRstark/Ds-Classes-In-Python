@@ -25,12 +25,10 @@ class CircularLinkedList :
         return result
     
     def Get(self , value):
-        
         if self.Tail.Value == value :
             return self.Tail
         
         current = self.Tail.next_node
-        
         while current is not self.Tail :
             if current.Value == value : return current
             current = current.next_node

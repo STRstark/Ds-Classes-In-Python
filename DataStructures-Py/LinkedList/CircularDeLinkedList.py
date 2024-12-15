@@ -4,7 +4,6 @@ class Node :
         self.next_node = nex_node
         self.prev_node = nex_node
         
-        
 class CircularDeLinkedList : 
     
     def __init__(self , datatype = int):
@@ -59,8 +58,6 @@ class CircularDeLinkedList :
         self.Tail.next_node = node
         node.next_node.prev_node = node
         
-        
-        
         self.Tail = node
         
     def Delete(self , Node):
@@ -93,5 +90,4 @@ LL.Insert(7.0)
 print(LL)    
 
 LL.Delete(LL.Get(6.0))
-
 print(LL)
