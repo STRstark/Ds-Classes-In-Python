@@ -61,7 +61,6 @@ class DeLinkedList:
             current = current.next_node
         raise ValueError(f'node {Node} not found in the linked list !')
 
-
 DELL = DeLinkedList(float)
 
 print(DELL)
@@ -76,3 +75,4 @@ print(DELL)
 DELL.Delete(DELL.Get(6.0))
 
 print(DELL)
+

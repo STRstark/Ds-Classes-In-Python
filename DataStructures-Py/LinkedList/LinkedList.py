@@ -68,6 +68,29 @@ class LinkedList :
     def DeleteAValue(self , value) :
         self.DeleteANode(self.GetNodeWithValue(value))
 
+def MergeSorted(List1 :LinkedList , List2 : LinkedList):
+    merged_list = LinkedList(List1.datatype)
+    
+    current1 = List1.Head
+    current2 = List2.Head
+    
+    while current1 and current2:
+        if current1.Value < current2.Value:
+            merged_list.Insert(current1.Value)
+            current1 = current1.next_node
+        else:
+            merged_list.Insert(current2.Value)
+            current2 = current2.next_node
+    
+    while current1:
+        merged_list.Insert(current1.Value)
+        current1 = current1.next_node
+    
+    while current2:
+        merged_list.Insert(current2.Value)
+        current2 = current2.next_node
+    
+    return merged_list
 
 
 test = LinkedList(int)

@@ -82,6 +82,20 @@ class CircularLinkedList :
             raise ValueError(f'Node : {Node} not found in the linked list !')
         
         head.next_node = head.next_node.next_node
+ 
+ 
+def detect_cycle(linked_list: CircularLinkedList) -> bool:
+    slow_pointer = linked_list.Tail 
+    fast_pointer = linked_list.Tail  
+
+    while fast_pointer and fast_pointer.next_node:
+        slow_pointer = slow_pointer.next_node     
+        fast_pointer = fast_pointer.next_node.next_node   
+
+        if slow_pointer == fast_pointer:
+            return True
+
+    return False
         
 LL = CircularLinkedList(float)
 
@@ -98,3 +112,5 @@ print(LL)
 LL.Delete(LL.Get(6.0))
 
 print(LL)
+
+print(detect_cycle(LL))
